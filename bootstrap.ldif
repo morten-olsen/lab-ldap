@@ -1,0 +1,27 @@
+dn: ou=Groups,{{ LDAP_BASE_DN }}
+changetype: add
+objectclass: organizationalUnit
+ou: Groups
+
+dn: ou=People,{{ LDAP_BASE_DN }}
+changetype: add
+objectclass: organizationalUnit
+ou: Users
+
+dn: ou=Applications,{{ LDAP_BASE_DN }}
+changetype: add
+objectclass: organizationalUnit
+ou: Applications
+
+dn: cn=Admins,ou=Groups,{{ LDAP_BASE_DN }}
+changetype: add
+cn: Admins
+objectclass: groupOfUniqueNames
+uniqueMember: cn=admin,dc=home,dc=intern
+
+dn: cn=users,{{ LDAP_BASE_DN }}
+changetype: add
+cn: users
+gidnumber: 500
+objectclass: posixGroup
+objectclass: top
